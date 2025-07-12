@@ -15,7 +15,7 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/arunyadav12/selenium-docker.git',
+                        url: 'https://github.com/aruny1990/selenium-docker.git',
                         credentialsId: 'github-token'
                     ]]
                 ])
