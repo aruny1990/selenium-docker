@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Code') {
       steps {
-        git 'https://github.com/arunyadav12/selenium-docker.git' // 🔁 Replace with your actual repo URL
+        git 'https://github.com/arunyadav12/selenium-docker.git',credentialsId:'github-token' // 🔁 Replace with your actual repo URL
       }
     }
 
