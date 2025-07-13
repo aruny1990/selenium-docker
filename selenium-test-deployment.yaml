@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-test-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: selenium-test-runner
+  template:
+    metadata:
+      labels:
+        app: selenium-test-runner
+    spec:
+      containers:
+      - name: selenium-test
+        image: arunyadav12/selenium-test:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        volumeMounts:
+        - name: test-output
+          mountPath: /reports
+      restartPolicy: Always
+      volumes:
+      - name: test-output
+        emptyDir: {}

@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: selenium-nightly-tests
+spec:
+  schedule: "* * * * *"
+  jobTemplate: 
+    spec:
+     template:
+       spec:
+         containers:
+         - name: selenium-test
+           image: arunyadav12/selenium-test:latest
+           imagePullPolicy: Always
+         restartPolicy: Never
